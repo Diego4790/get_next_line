@@ -6,7 +6,7 @@
 /*   By: dileleux <dileleux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 13:06:34 by dileleux          #+#    #+#             */
-/*   Updated: 2021/03/15 11:02:15 by dileleux         ###   ########.fr       */
+/*   Updated: 2021/03/15 17:58:53 by dileleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,13 @@ void	*ft_calloc(size_t nmemb, size_t size)
 
 char	*ft_strchr(const char *str, int c)
 {
-	char	*s;
 	int		i;
 
 	i = 0;
-	s = (char*)str;
-	while (s && s[i])
+	while (str && str[i])
 	{
-		if (s[i] == c)
-			return (&s[i]);
+		if (str[i] == c)
+			return ((char*)&str[i]);
 		i++;
 	}
 	return (NULL);
