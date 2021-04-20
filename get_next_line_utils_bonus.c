@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dileleux <dileleux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 13:06:34 by dileleux          #+#    #+#             */
-/*   Updated: 2021/03/15 17:58:53 by dileleux         ###   ########.fr       */
+/*   Updated: 2021/03/19 22:26:21 by dileleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -22,7 +22,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	while (i < size)
 	{
-		((unsigned char*)array)[i] = 0;
+		((unsigned char *)array)[i] = 0;
 		i++;
 	}
 	return (array);
@@ -44,7 +44,7 @@ char	*ft_strchr(const char *str, int c)
 
 size_t	ft_strlen(const char *str)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (str && str[i] != '\0')

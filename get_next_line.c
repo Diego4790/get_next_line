@@ -6,7 +6,7 @@
 /*   By: dileleux <dileleux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 13:05:19 by dileleux          #+#    #+#             */
-/*   Updated: 2021/03/16 16:42:54 by dileleux         ###   ########.fr       */
+/*   Updated: 2021/03/19 22:24:43 by dileleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_free_if_freeable(char **to_free, int return_flag)
 {
-	if (to_free)
+	if (to_free != NULL && *to_free != NULL)
 	{
 		free(*to_free);
 		*to_free = NULL;
@@ -66,14 +66,15 @@ int			get_next_line(int fd, char **line)
 	int			bytes_read;
 	static char	*variable;
 
-	if (fd < 0 || fd >= FOPEN_MAX || !line || BUFFER_SIZE < 1 || BUFFER_SIZE >= INT_MAX)
+	if (fd < 0 || fd >= OPEN_MAX || !line || BUFFER_SIZE < 1 ||\
+			BUFFER_SIZE >= INT_MAX)
 		return (-1);
 	*line = ft_calloc(sizeof(char), 1);
 	if (variable && ft_remaining_newline(&variable, line))
 		return (1);
-	if (!(buf = (char*)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
+	if (!(buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1))))
 		return (-1);
-	while ((bytes_read = read(fd, buf, BUFFER_SIZE)))
+	while ((bytes_read = read(fd, buf, BUFFER_SIZE)) > 0)
 	{
 		buf[bytes_read] = '\0';
 		if (ft_concat_until_newline(line, buf, &variable))

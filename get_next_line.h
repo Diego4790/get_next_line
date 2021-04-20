@@ -6,7 +6,7 @@
 /*   By: dileleux <dileleux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 13:07:03 by dileleux          #+#    #+#             */
-/*   Updated: 2021/03/15 16:42:20 by dileleux         ###   ########.fr       */
+/*   Updated: 2021/03/19 15:32:14 by dileleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <limits.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <sys/types.h>
+# include <sys/uio.h>
 # include <unistd.h>
 
 int		get_next_line(int fd, char **line);
