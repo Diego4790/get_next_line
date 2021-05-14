@@ -6,7 +6,7 @@
 /*   By: dileleux <dileleux@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/02 13:06:34 by dileleux          #+#    #+#             */
-/*   Updated: 2021/03/19 22:26:21 by dileleux         ###   ########.fr       */
+/*   Updated: 2021/05/14 23:45:25 by dileleux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	size_t	i;
 
 	i = 0;
-	if (!(array = malloc(nmemb * size)))
+	array = malloc(nmemb * size);
+	if (!array)
 		return (NULL);
 	while (i < size)
 	{
@@ -36,7 +37,7 @@ char	*ft_strchr(const char *str, int c)
 	while (str && str[i])
 	{
 		if (str[i] == c)
-			return ((char*)&str[i]);
+			return ((char *)&str[i]);
 		i++;
 	}
 	return (NULL);
@@ -58,7 +59,10 @@ char	*ft_strdup(const char *s)
 	char	*str;
 
 	i = 0;
-	if (!s || !(str = malloc(sizeof(*str) * ft_strlen(s) + 1)))
+	if (!s)
+		return (NULL);
+	str = malloc(sizeof(*str) * ft_strlen(s) + 1);
+	if (!str)
 		return (NULL);
 	while (s[i])
 	{
@@ -77,7 +81,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
-	if (!(str = malloc(sizeof(*str) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
+	str = malloc(sizeof(*str) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
 		return (NULL);
 	while (s1 && s1[i])
 	{
